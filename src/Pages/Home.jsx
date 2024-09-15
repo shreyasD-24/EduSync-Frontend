@@ -34,18 +34,18 @@ export default function Home() {
       <div className="lg:grid-cols-2 grid grid-cols-1">
         <div className="flex flex-col lg:pl-20 justify-center">
           <div>
-            <div className="lg:text-6xl md:text-4xl sm:text-3xl text-2xl lg:text-left text-center flex flex-col gap-4 font-spacegrotesksemibold">
+            <div className="lg:text-4xl xl:text-5xl sm:text-3xl text-2xl lg:text-left text-center flex flex-col gap-4 font-spacegrotesksemibold">
               <div>
                 Speak.<span className="text-[#2D8CFF]"> Learn</span>. Thrive
               </div>
-              <div>Bridging the gap with</div>
-              <div>every word</div>
+              <div>Transforming speech, <br/>empowering lives with AI.</div>
+              {/* <div>every word</div> */}
             </div>
             <div className="lg:hidden flex justify-center mt-10">
               <img src={Mic} />
             </div>
             <div className="lg:text-xl md:text-xl text-lg font-spacegroteskregular my-10 text-center lg:text-start p-1 lg:p-0">
-              Our goal is to empower individuals with speech challenges. Unlock
+              Our goal is to empower individuals with neurodiverse challenges. Unlock
               your potential through personalized speech training.
             </div>
           </div>
@@ -86,12 +86,40 @@ export default function Home() {
                 />
               </div>
               <div className="font-spacegrotesksemibold lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start text-white mb-2">
-                Engaging Interfacing
+                Engaging Interface
               </div>
               <div className="text-white font-spacegrotesklight text-center lg:text-start md:text-start">
                 Interactive sessions for an immersive learning experience.
               </div>
             </div>
+
+            <div className="bg-white rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
+              <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
+                <img src={Motor} alt="" className="mb-4 lg:h-20 md:h-20 h-14" />
+              </div>
+              <div className="font-spacegrotesksemibold mb-2 lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start">
+              Conversational AI
+              </div>
+              <div className=" font-spacegrotesklight text-center lg:text-start md:text-start">
+              Speech therapy through AI. Boosting self confidence and increasing social skills.
+              </div>
+            </div>
+
+
+            
+            <div className="bg-[#2D8CFF] rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
+              <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
+                <img src={Phonic} alt="" className="lg:h-24 md:h-24 h-14" />
+              </div>
+              <div className="font-spacegrotesksemibold text-white mb-2 lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start">
+                Holistic Phonics Training
+              </div>
+              <div className="font-spacegrotesklight text-center lg:text-start md:text-start text-white">
+                The software covers the sounds of Hindi in isolation and within
+                different words across all word positions.
+              </div>
+            </div>
+
 
             <div className="bg-white rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
               <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
@@ -109,30 +137,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-[#2D8CFF] rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
-              <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
-                <img src={Phonic} alt="" className="lg:h-24 md:h-24 h-14" />
-              </div>
-              <div className="font-spacegrotesksemibold text-white mb-2 lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start">
-                Holistic Phonics Training
-              </div>
-              <div className="font-spacegrotesklight text-center lg:text-start md:text-start text-white">
-                The software covers the sounds of Hindi in isolation and within
-                different words across all word positions.
-              </div>
-            </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
-              <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
-                <img src={Motor} alt="" className="mb-4 lg:h-20 md:h-20 h-14" />
-              </div>
-              <div className="font-spacegrotesksemibold mb-2 lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start">
-                Motor-Based Intervention
-              </div>
-              <div className=" font-spacegrotesklight text-center lg:text-start md:text-start">
-                Incorporates both perceptual and production training.
-              </div>
-            </div>
+            
 
             <div className="bg-[#2D8CFF] rounded-3xl p-6 shadow-2xl lg:h-64 lg:w-96 md:h-64 md:w-96 max-w-96">
               <div className="flex items-center justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
@@ -156,7 +162,7 @@ export default function Home() {
                 />
               </div>
               <div className="font-spacegrotesksemibold mb-2 lg:text-2xl md:text-2xl text-lg text-center lg:text-start md:text-start">
-                Multimodal Learning
+                3D Speech Modelling
               </div>
               <div className="font-spacegrotesklight text-center lg:text-start md:text-start">
                 Multimodal approach with visual & cues and 3-Dimensional
@@ -178,30 +184,27 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 grid-cols-1">
             <div className="lg:ml-20 flex flex-col gap-8 items-center justify-center">
               <div className="lg:hidden flex justify-center items-center mt-10">
-                <img
-                  src={RealTIme}
+                {/* <img
+                  src={Dimensional}
                   alt=""
                   className="h-[200px] md:h-[300px] sm:h-[300px]"
-                />
+                /> */}
               </div>
-              <div className="lg:text-4xl md:text-3xl text-xl p-1 lg:p-0 lg:text-start text-center font-spacegrotesksemibold">
-                Real-Time Speech Detection and Weekly Test Analysis
+              <div className="lg:text-4xl md:text-3xl text-xl p-1 lg:p-0 lg:text-start font-spacegrotesksemibold">Conversational AI and Progress Tracking
               </div>
-              <div className="font-spacegroteskregular lg:text-xl md:text-xl text-sm lg:text-start text-center p-4 lg:p-0">
-                Unlock the potential of your voice through cutting-edge
-                technology. Our platform not only hears your words but guides
-                you towards eloquence with precision.
+              <div className="font-spacegroteskregular lg:text-xl md:text-xl text-sm lg:text-start  p-4 lg:p-0">
+              Engages children in natural dialogue to boost confidence and social skills. Generates detailed reports for parents and therapists on the child’s improvements.
               </div>
             </div>
             <div className="hidden lg:flex justify-center">
-              <img src={RealTIme} alt="" className="h-[400px]" />
+              <img src={Dimensional} alt="" className="h-[400px]" />
             </div>
           </div>
 
           <div className="grid lg:grid-cols-2">
             <div className="flex justify-center mt-10 lg:mt-0 md:mt-0">
               <img
-                src={Dimensional}
+                src={RealTIme}
                 alt=""
                 className="lg:h-[400px] md:h-[400px] h-[200px]"
               />
