@@ -95,7 +95,7 @@ export default function Articles() {
               Model and Remedies
             </div>
             <div className="md:flex justify-between items-center m-20 md:mx-80">
-              <div className="rounded">
+              {/* <div className="rounded">
                 <video
                   width="320"
                   height="320"
@@ -113,10 +113,62 @@ export default function Articles() {
                     type="video/mp4"
                   />
                 </video>
-              </div>
+              </div> */}
+              <div className="sketchfab-embed-wrapper">
+  {" "}
+  <iframe
+    title="Photorealistic human mouth"
+    frameBorder={0}
+    allowFullScreen=""
+    mozallowfullscreen="true"
+    webkitallowfullscreen="true"
+    allow="autoplay; fullscreen; xr-spatial-tracking"
+    xr-spatial-tracking=""
+    execution-while-out-of-viewport=""
+    execution-while-not-rendered=""
+    web-share=""
+    src="https://sketchfab.com/models/d92cfd5873ac43299c7b64cdf9725526/embed"
+  >
+    {" "}
+  </iframe>{" "}
+  {/* <p
+    style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}
+  >
+    {" "}
+    <a
+      href="https://sketchfab.com/3d-models/photorealistic-human-mouth-d92cfd5873ac43299c7b64cdf9725526?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      {" "}
+      Photorealistic human mouth{" "}
+    </a>{" "}
+    by{" "}
+    <a
+      href="https://sketchfab.com/cesar_salcedo?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      {" "}
+      Cesar Salcedo CG{" "}
+    </a>{" "}
+    on{" "}
+    <a
+      href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
+      target="_blank"
+      rel="nofollow"
+      style={{ fontWeight: "bold", color: "#1CAAD9" }}
+    >
+      Sketchfab
+    </a>
+  </p> */}
+</div>
+
               <div>
                 <div className="font-spacegrotesksemibold bg-white rounded-3xl p-10 shadow-2xl lg:h-80 lg:w-96 md:h-80 md:w-96 max-w-96 mt-10">
-                  <div className="md:flex items-center gap-20 justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
+                  <div  className="md:flex items-center gap-20 justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
                     {/* <img src={Progress} alt="" className="mb-4 lg:h-20 md:h-20 h-14" /> */}
                   </div>
                   <div>
