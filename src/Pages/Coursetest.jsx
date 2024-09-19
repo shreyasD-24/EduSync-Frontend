@@ -5,6 +5,7 @@ import NavButton from "../Components/NavButton";
 import RecordingLoader from "../Components/RecordingLoader";
 import { useNavigate ,useParams } from "react-router-dom";
 import { saveArticle, getSavedArticle } from "../utils/articleUtils"; // Import utility functions
+import { saveData } from "../utils/Phenome";
 
 const baseUrl = "http://localhost:5000";
 
@@ -34,13 +35,16 @@ const Overalltest = ({ articleProp }) => {
       setImage(data.image_link);
       setWord(data.word1);
       setPronounciation(data.pronunciation);
+      saveData(article,data.word1)
     }
 
     letterCall();
-    saveArticle(articleName); // Save the article whenever it's fetched or changed
+    saveArticle(articleName);
+    
+     // Save the article whenever it's fetched or changed
   }, [letter, articleName]);
 
-  
+
   const nextLetter = () => {
     setLetter((prevLetter) => {
       if (prevLetter === "A") return "B";

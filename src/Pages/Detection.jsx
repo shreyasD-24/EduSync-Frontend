@@ -7,14 +7,17 @@ import char from "../assets/character_de1111a819 1.png";
 import boat from '../assets/boat.mp4';
 import tree from '../assets/tree.mp4';
 import sunday from '../assets/sunday.mp4';
+import {getSavedData} from '../utils/Phenome'
 
 export default function Articles() {
   const [percentage, setPercentage] = useState(null);
   const [remedy, setRemedy] = useState(null);
   const [videoSrc, setVideoSrc] = useState(boat); // State for video source
   const navigate = useNavigate();
+  const letter = getSavedData();
+  console.log(letter[letter.length - 1])
 
-  // Extract percentage from URL
+  // Extract percentage from URLs
   useEffect(() => {
     const url = window.location.href;
     const percentageFromUrl = url.match(/\/detect\/(\d+)/);
@@ -39,10 +42,10 @@ export default function Articles() {
 
   // Fetch letter and set video source
   useEffect(() => {
-    const letter = getSavedArticle(); // Get the saved letter
+     // Get the saved letter
 
     // Determine the video based on the letter
-    switch (letter.toLowerCase()) {
+    switch (letter[letter.length - 1].savedLetter.toLowerCase()) {
       case "t":
         setVideoSrc(tree); // Video for letter T
         break;
@@ -66,7 +69,7 @@ export default function Articles() {
     <div>
       <div>
         <div className="border-y-4 font-spacegrotesksemibold border-black font-medium lg:text-2xl md:text-2xl sm:text-xl text-xl w-fit lg:ml-20 ml-2 text-center">
-          {`Phenome V and B`}
+        Phoneme { letter[letter.length - 1].savedLetter}
         </div>
         <div className="font-spacegrotesksemibold border-black font-medium lg:text-2xl md:text-xl sm:text-xl text-xl w-fit lg:ml-20 ml-2 text-center mt-28">
           Test Number : {`2`}
@@ -75,8 +78,8 @@ export default function Articles() {
           Details about the test:
         </div>
         <div className="md:flex font-spacegrotesksemibold justify-between items-center font-medium lg:text-2xl md:text-xl sm:text-xl text-xl lg:ml-20 ml-2 lg:mr-20 mr-2 text-center mt-10">
-          <div>Words to be spelled: {`Boat`}</div>
-          <div>Phenome word: {`Voat`}</div>
+          <div>Words to be spelled: {letter[letter.length - 1].word}</div>
+          {/* <div>Phoneme word: {`Voat`}</div> */}
           <div>Average correct percentage: {`${percentage}`}%</div>
         </div>
         <div className="border-y-4 font-spacegrotesksemibold border-black font-medium lg:text-2xl md:text-2xl sm:text-xl text-xl w-fit lg:ml-20 ml-2 text-center mt-40 mb-14">
