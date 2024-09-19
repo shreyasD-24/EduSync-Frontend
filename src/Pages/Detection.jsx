@@ -119,8 +119,8 @@ export default function Articles() {
               <div className="rounded">
                 {/* Video based on letter */}
                 <video
-                  width="320"
-                  height="320"
+                  width="500"
+                  height="500"
                   autoPlay={true}
                   muted={true}
                   loop={true}
