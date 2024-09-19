@@ -4,14 +4,15 @@ import Mic from "../Components/Mic";
 import NavButton from "../Components/NavButton";
 import RecordingLoader from "../Components/RecordingLoader";
 import { useNavigate ,useParams } from "react-router-dom";
+import { saveArticle, getSavedArticle } from "../utils/articleUtils"; // Import utility functions
 
 const baseUrl = "http://localhost:5000";
 
 const Overalltest = ({ articleProp }) => {
   const navigate = useNavigate();
-  const { article } = useParams(); // Access article from URL if passed as a route param
-  const articleName = article || articleProp || "default"; // Choose from URL, prop, or fallback
-  
+  const { article } = useParams(); 
+  const articleName = article || articleProp || getSavedArticle(); // Use saved article or fallback
+
   let [letter, setLetter] = useState("B");
   let [attempts, setAttempts] = useState([]);
   let [word, setWord] = useState("");
@@ -36,7 +37,10 @@ const Overalltest = ({ articleProp }) => {
     }
 
     letterCall();
+    saveArticle(articleName); // Save the article whenever it's fetched or changed
   }, [letter, articleName]);
+
+  
   const nextLetter = () => {
     setLetter((prevLetter) => {
       if (prevLetter === "A") return "B";

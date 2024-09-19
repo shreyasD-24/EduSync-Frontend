@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-// import Navbar from "../Components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { getSavedArticle } from "../utils/articleUtils"; // Import the utility function
 import Component from "../assets/Component 35.png";
 import Trophy from "../assets/Trophy.png";
 import char from "../assets/character_de1111a819 1.png";
-import { useNavigate } from "react-router-dom";
+import boat from '../assets/boat.mp4';
+import tree from '../assets/tree.mp4';
+import sunday from '../assets/sunday.mp4';
 
 export default function Articles() {
   const [percentage, setPercentage] = useState(null);
   const [remedy, setRemedy] = useState(null);
+  const [videoSrc, setVideoSrc] = useState(boat); // State for video source
   const navigate = useNavigate();
+
   // Extract percentage from URL
   useEffect(() => {
     const url = window.location.href;
@@ -32,6 +37,23 @@ export default function Articles() {
     }
   }, [percentage]);
 
+  // Fetch letter and set video source
+  useEffect(() => {
+    const letter = getSavedArticle(); // Get the saved letter
+
+    // Determine the video based on the letter
+    switch (letter.toLowerCase()) {
+      case "t":
+        setVideoSrc(tree); // Video for letter T
+        break;
+      case "s":
+        setVideoSrc(sunday); // Video for letter S
+        break;
+      default:
+        setVideoSrc(boat); // Default video for any other letter
+    }
+  }, []);
+
   const backtolearning = () => {
     navigate("/learning");
   };
@@ -42,7 +64,6 @@ export default function Articles() {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div>
         <div className="border-y-4 font-spacegrotesksemibold border-black font-medium lg:text-2xl md:text-2xl sm:text-xl text-xl w-fit lg:ml-20 ml-2 text-center">
           {`Phenome V and B`}
@@ -96,6 +117,7 @@ export default function Articles() {
             </div>
             <div className="md:flex justify-between items-center m-20 md:mx-80">
               <div className="rounded">
+                {/* Video based on letter */}
                 <video
                   width="320"
                   height="320"
@@ -103,77 +125,18 @@ export default function Articles() {
                   muted={true}
                   loop={true}
                   controls={false}
-                  controlslist="nodownload"
-                  webkitallowfullscreen
-                  mozallowfullscreen
-                  allowfullscreen
+                  // controlslist="nodownload"
+                  // webkitallowfullscreen
+                  // mozallowfullscreen
+                  // allowfullscreen
                 >
-                  
-                  <source
-                    src="https://edusync-video.s3.us-east-2.amazonaws.com/InShot_20240126_153904344.mp4"
-                    type="video/mp4"
-                  />
+                  <source src={videoSrc} type="video/mp4" />
                 </video>
-
-
               </div>
-              {/* <div className="sketchfab-embed-wrapper">
-  {" "}
-  <iframe
-    title="Photorealistic human mouth"
-    frameBorder={0}
-    allowFullScreen=""
-    mozallowfullscreen="true"
-    webkitallowfullscreen="true"
-    allow="autoplay; fullscreen; xr-spatial-tracking"
-    xr-spatial-tracking=""
-    execution-while-out-of-viewport=""
-    execution-while-not-rendered=""
-    web-share=""
-    src="https://sketchfab.com/models/d92cfd5873ac43299c7b64cdf9725526/embed"
-  >
-    {" "}
-  </iframe>{" "}
-  {/* <p
-    style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}
-  >
-    {" "}
-    <a
-      href="https://sketchfab.com/3d-models/photorealistic-human-mouth-d92cfd5873ac43299c7b64cdf9725526?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
-      target="_blank"
-      rel="nofollow"
-      style={{ fontWeight: "bold", color: "#1CAAD9" }}
-    >
-      {" "}
-      Photorealistic human mouth{" "}
-    </a>{" "}
-    by{" "}
-    <a
-      href="https://sketchfab.com/cesar_salcedo?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
-      target="_blank"
-      rel="nofollow"
-      style={{ fontWeight: "bold", color: "#1CAAD9" }}
-    >
-      {" "}
-      Cesar Salcedo CG{" "}
-    </a>{" "}
-    on{" "}
-    <a
-      href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=d92cfd5873ac43299c7b64cdf9725526"
-      target="_blank"
-      rel="nofollow"
-      style={{ fontWeight: "bold", color: "#1CAAD9" }}
-    >
-      Sketchfab
-    </a>
-  </p> 
-</div> */}
 
               <div>
                 <div className="font-spacegrotesksemibold bg-white rounded-3xl p-10 shadow-2xl lg:h-80 lg:w-96 md:h-80 md:w-96 max-w-96 mt-10">
-                  <div  className="md:flex items-center gap-20 justify-center lg:items-start lg:justify-start md:items-start md:justify-start">
-                    {/* <img src={Progress} alt="" className="mb-4 lg:h-20 md:h-20 h-14" /> */}
-                  </div>
+                  <div className="md:flex items-center gap-20 justify-center lg:items-start lg:justify-start md:items-start md:justify-start"></div>
                   <div>
                     <div className="font-spacegrotesksemibold mb-2 lg:text-xl md:text-xl text-lg text-center bg-[#89D85D] rounded-2xl w-max p-2 mt-2 drop-shadow-[2px_3px_2px_rgba(0,0,0,0.7)]">
                       Instructions
@@ -189,19 +152,18 @@ export default function Articles() {
         )}
       </div>
       <div className="font-spacegrotesksemibold md:flex gap-20 ml-40 mx-20 lg:mx-80 my-10 mb-20">
-        <button className="w-[20rem] h-[4rem] bg-[#0984E3] mt-10 rounded-lg text-white drop-shadow-[1px_2px_1px_rgba(0,0,0,0.7)] hover:opacity-80 flex justify-center ml-20 items-center">
-          <div onClick={backtotryagain} className="mx-1 text-xl">
-            Test Again
-          </div>
-          {/* <img src={Sparkle} className="h-[1rem]"></img> */}
+        <button
+          className="w-[20rem] h-[4rem] bg-[#0984E3] mt-10 rounded-lg text-white drop-shadow-[1px_2px_1px_rgba(0,0,0,0.7)] hover:opacity-80 flex justify-center ml-20 items-center"
+          onClick={backtotryagain}
+        >
+          <div className="mx-1 text-xl">Test Again</div>
         </button>
-        <button className="font-spacegrotesksemibold w-[20rem] h-[4rem] bg-[#89D85D] mt-10 rounded-lg drop-shadow-[1px_2px_1px_rgba(0,0,0,0.7)] hover:opacity-80 flex justify-center items-center">
-          <div onClick={backtolearning} className="mx-1 text-xl">
-            Back To Learning
-          </div>
-          {/* <img src={Sparkle} className="h-[1rem]"></img> */}
+        <button
+          className="font-spacegrotesksemibold w-[20rem] h-[4rem] bg-[#89D85D] mt-10 rounded-lg drop-shadow-[1px_2px_1px_rgba(0,0,0,0.7)] hover:opacity-80 flex justify-center items-center"
+          onClick={backtolearning}
+        >
+          <div className="mx-1 text-xl">Back To Learning</div>
         </button>
-        {/* <button></button> */}
       </div>
     </div>
   );
