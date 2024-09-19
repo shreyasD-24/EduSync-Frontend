@@ -44,10 +44,6 @@ const Overalltest = ({ articleProp }) => {
      // Save the article whenever it's fetched or changed
   }, [letter, articleName]);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11e49a707bb6c6868cfa79bb4e70b15079dff602
   const nextLetter = () => {
     setLetter((prevLetter) => {
       if (prevLetter === "A") return "B";
