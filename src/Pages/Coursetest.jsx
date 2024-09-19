@@ -3,7 +3,7 @@ import RecordButton from "../Components/RecordButton";
 import Mic from "../Components/Mic";
 import NavButton from "../Components/NavButton";
 import RecordingLoader from "../Components/RecordingLoader";
-import { useNavigate ,useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { saveArticle, getSavedArticle } from "../utils/articleUtils"; // Import utility functions
 import { saveData } from "../utils/Phenome";
 
@@ -11,7 +11,7 @@ const baseUrl = "http://localhost:5000";
 
 const Overalltest = ({ articleProp }) => {
   const navigate = useNavigate();
-  const { article } = useParams(); 
+  const { article } = useParams();
   const articleName = article || articleProp || getSavedArticle(); // Use saved article or fallback
 
   let [letter, setLetter] = useState("B");
@@ -23,7 +23,7 @@ const Overalltest = ({ articleProp }) => {
   let [recording, setRecording] = useState(false);
 
   const improvisationNeeded = () => {
-    let average = Math.round((averageAccuracy / attempts.length));
+    let average = Math.round(averageAccuracy / attempts.length);
     navigate("/detect/" + average);
   };
 
@@ -44,7 +44,10 @@ const Overalltest = ({ articleProp }) => {
      // Save the article whenever it's fetched or changed
   }, [letter, articleName]);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11e49a707bb6c6868cfa79bb4e70b15079dff602
   const nextLetter = () => {
     setLetter((prevLetter) => {
       if (prevLetter === "A") return "B";
@@ -144,7 +147,7 @@ const Overalltest = ({ articleProp }) => {
           <div
             className="h-[7rem] w-[14rem] rounded-lg flex flex-col justify-center items-center text-white font-semibold text-md gap-y-3 text-center drop-shadow-[3px_4px_2px_rgba(0,0,0,0.7)]"
             style={
-              attempts[0]
+              typeof attempts[0] != "undefined"
                 ? attempts[0] >= 50
                   ? { backgroundColor: "#89D85D" }
                   : { backgroundColor: "#D86C5D" }
@@ -158,7 +161,7 @@ const Overalltest = ({ articleProp }) => {
           <div
             className="h-[7rem] w-[14rem] rounded-lg flex flex-col justify-center items-center text-white font-semibold text-md gap-y-3 text-center drop-shadow-[3px_4px_2px_rgba(0,0,0,0.7)]"
             style={
-              attempts[1]
+              typeof attempts[1] != "undefined"
                 ? attempts[1] >= 50
                   ? { backgroundColor: "#89D85D" }
                   : { backgroundColor: "#D86C5D" }
@@ -172,7 +175,7 @@ const Overalltest = ({ articleProp }) => {
           <div
             className="h-[7rem] w-[14rem] rounded-lg flex flex-col justify-center items-center text-white font-semibold text-md gap-y-3 text-center drop-shadow-[3px_4px_2px_rgba(0,0,0,0.7)]"
             style={
-              attempts[2]
+              typeof attempts[2] != "undefined"
                 ? attempts[2] >= 50
                   ? { backgroundColor: "#89D85D" }
                   : { backgroundColor: "#D86C5D" }
@@ -201,24 +204,27 @@ const Overalltest = ({ articleProp }) => {
           />
         )}
       </div> */}
-      {
-        (averageAccuracy / attempts.length >= 50 && attempts.length == 3) ? (
-          <div className="flex items-center justify-center">
-            <button className="bg-lime-600 p-4 rounded-lg text-white shadow-md">Great going!</button>
-          </div>
-        ) : (
-          <></>
-        )
-      }
-      {
-        (averageAccuracy / attempts.length < 50 && attempts.length == 3) ? (
-          <div className="flex items-center justify-center">
-            <button onClick={improvisationNeeded} className="bg-blue-600 p-4 rounded-lg text-white shadow-md">You need to practice more!</button>
-          </div>
-        ) : (
-          <></>
-        )
-      }
+      {averageAccuracy / attempts.length >= 50 && attempts.length == 3 ? (
+        <div className="flex items-center justify-center">
+          <button className="bg-lime-600 p-4 rounded-lg text-white shadow-md">
+            Great going!
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
+      {averageAccuracy / attempts.length < 50 && attempts.length == 3 ? (
+        <div className="flex items-center justify-center">
+          <button
+            onClick={improvisationNeeded}
+            className="bg-blue-600 p-4 rounded-lg text-white shadow-md"
+          >
+            You need to practice more!
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
