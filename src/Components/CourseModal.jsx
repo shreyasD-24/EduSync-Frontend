@@ -11,7 +11,7 @@ export default function CourseModal({
 }) {
   const navigate = useNavigate();
   const coursetest = () => {
-    navigate("/course");
+    navigate(`/course/${Phoneme1}`);
   };
   return (
     <div>

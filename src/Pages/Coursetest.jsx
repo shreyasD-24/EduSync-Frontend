@@ -3,12 +3,15 @@ import RecordButton from "../Components/RecordButton";
 import Mic from "../Components/Mic";
 import NavButton from "../Components/NavButton";
 import RecordingLoader from "../Components/RecordingLoader";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useParams } from "react-router-dom";
 
 const baseUrl = "http://localhost:5000";
 
-const Overalltest = () => {
+const Overalltest = ({ articleProp }) => {
   const navigate = useNavigate();
+  const { article } = useParams(); // Access article from URL if passed as a route param
+  const articleName = article || articleProp || "default"; // Choose from URL, prop, or fallback
+  
   let [letter, setLetter] = useState("B");
   let [attempts, setAttempts] = useState([]);
   let [word, setWord] = useState("");
@@ -20,11 +23,11 @@ const Overalltest = () => {
   const improvisationNeeded = () => {
     let average = Math.round((averageAccuracy / attempts.length));
     navigate("/detect/" + average);
-  }
+  };
 
   useEffect(() => {
     async function letterCall() {
-      let url = baseUrl + "/generate_word/" + "B";
+      let url = `${baseUrl}/generate_word/${articleName}`;
       const res = await fetch(url);
       const data = await res.json();
       setImage(data.image_link);
@@ -33,8 +36,7 @@ const Overalltest = () => {
     }
 
     letterCall();
-  }, [letter]);
-
+  }, [letter, articleName]);
   const nextLetter = () => {
     setLetter((prevLetter) => {
       if (prevLetter === "A") return "B";
@@ -75,7 +77,7 @@ const Overalltest = () => {
 
   return (
     <div className="md:px-[9rem] pb-[4rem] font-spacegroteskmedium">
-      <div className="text-md font-semibold mb-6">Letter : {letter}</div>
+      <div className="text-md font-semibold mb-6">Letter : {articleName}</div>
 
       <div className="flex justify-between text-md font-semibold mb-5">
         <span className="">

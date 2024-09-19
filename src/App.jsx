@@ -20,7 +20,7 @@ export default function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/detect/:number" element={<Detection />} />
         <Route path="/overall" element={<Overalltest />} />
-        <Route path="/course" element={<Coursetest />} />
+        <Route path="/course/:article" element={<Coursetest />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -57,8 +57,8 @@ export default function Learning() {
           </div>
           <div className="flex flex-col p-4 pt-0 gap-8 h-[800px] overflow-y-scroll custom-scrollbar">
             <CourseModal
-              Phoneme1={"V"}
-              Phoneme2={"B"}
+              Phoneme1={"B"}
+              Phoneme2={"V"}
               Status={"Continue Learning"}
               Progress={1}
               Color={"#2D8CFF"}

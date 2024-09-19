@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../Components/Navbar";
+// import Navbar from "../Components/Navbar";
 import Component from "../assets/Component 35.png";
 import Trophy from "../assets/Trophy.png";
 import char from "../assets/character_de1111a819 1.png";
@@ -95,7 +95,7 @@ export default function Articles() {
               Model and Remedies
             </div>
             <div className="md:flex justify-between items-center m-20 md:mx-80">
-              {/* <div className="rounded">
+              <div className="rounded">
                 <video
                   width="320"
                   height="320"
@@ -108,13 +108,16 @@ export default function Articles() {
                   mozallowfullscreen
                   allowfullscreen
                 >
+                  
                   <source
                     src="https://edusync-video.s3.us-east-2.amazonaws.com/InShot_20240126_153904344.mp4"
                     type="video/mp4"
                   />
                 </video>
-              </div> */}
-              <div className="sketchfab-embed-wrapper">
+
+
+              </div>
+              {/* <div className="sketchfab-embed-wrapper">
   {" "}
   <iframe
     title="Photorealistic human mouth"
@@ -163,8 +166,8 @@ export default function Articles() {
     >
       Sketchfab
     </a>
-  </p> */}
-</div>
+  </p> 
+</div> */}
 
               <div>
                 <div className="font-spacegrotesksemibold bg-white rounded-3xl p-10 shadow-2xl lg:h-80 lg:w-96 md:h-80 md:w-96 max-w-96 mt-10">
