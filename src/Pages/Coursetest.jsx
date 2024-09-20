@@ -35,13 +35,13 @@ const Overalltest = ({ articleProp }) => {
       setImage(data.image_link);
       setWord(data.word1);
       setPronounciation(data.pronunciation);
-      saveData(article,data.word1)
+      saveData(article, data.word1);
     }
 
     letterCall();
     saveArticle(articleName);
-    
-     // Save the article whenever it's fetched or changed
+
+    // Save the article whenever it's fetched or changed
   }, [letter, articleName]);
 
   const nextLetter = () => {

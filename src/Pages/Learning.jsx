@@ -18,7 +18,7 @@ export default function Learning() {
   const navigate = useNavigate();
   const overalltest = () => {
     navigate("/overall");
-  }
+  };
   return (
     <div>
       <div className="flex justify-center gap-[10%] items-center">
@@ -31,7 +31,10 @@ export default function Learning() {
               <p className="text-xl mb-6 font-spacegrotesksemibold">
                 Don't worry take our detection of phoneme error test
               </p>
-              <button onClick={overalltest} className="bg-[#89D85D] shadow-lg text-lg hover:bg-opacity-80 font-spacegrotesksemibold py-4 px-4 rounded-lg">
+              <button
+                onClick={overalltest}
+                className="bg-[#89D85D] shadow-lg text-lg hover:bg-opacity-80 font-spacegrotesksemibold py-4 px-4 rounded-lg"
+              >
                 Start Test <span className="ml-2">→</span>
               </button>
             </div>
@@ -135,12 +138,30 @@ export default function Learning() {
               Featured Articles
             </div>
             <div className="flex flex-col pt-0 pl-0 mt-10 gap-4 h-[470px] overflow-y-scroll custom-scrollbar p-4">
-              <Articlescomponent />
-              <Articlescomponent />
-              <Articlescomponent />
-              <Articlescomponent />
-              <Articlescomponent />
-              <Articlescomponent />
+              <Articlescomponent
+                content="Conversational AI boosts social confidence in children with speech disorders."
+                author="Emily Harrison"
+              />
+              <Articlescomponent
+                content="Early speech intervention can transform the lives of 5% of first graders."
+                author="Michael Reed"
+              />
+              <Articlescomponent
+                content="Speech therapy transforms struggling voices into confident communicators."
+                author="James Whitaker"
+              />
+              <Articlescomponent
+                content="Transforming speech, transforming futures: How therapy empowers children."
+                author="Hannah Caldwell"
+              />
+              <Articlescomponent
+                content="AI revolutionizes speech therapy, offering personalized solutions for children."
+                author="Grace Collins"
+              />
+              <Articlescomponent
+                content="Accessible speech therapy empowers children to improve communication skills."
+                author="Olivia Bennett"
+              />
             </div>
           </div>
         </div>
